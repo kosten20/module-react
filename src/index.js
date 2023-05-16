@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createGlobalStyle } from "styled-components";
+//import Main from "./main.js";
+import Flex from "./Flex.js";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import Basket from "./Basket.js";
+const Global = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+}
+body {
+  background: #161516;
+}
+`;
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Global />
+    <Flex direction={"column"} align={"center"}>
+      <Basket />
+    </Flex>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
