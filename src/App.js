@@ -8,8 +8,8 @@ import Basket from "./Basket.js";
 const App = () => (
   <CartContextProvider>
     <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/basket" element={<Basket />} />
+      <Route path="/module-react" element={<Main />} />
+      <Route path="/module-react/basket" element={<Basket />} />
     </Routes>
   </CartContextProvider>
 );
