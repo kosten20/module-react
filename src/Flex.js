@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 const StyleFlex = styled.div`
   display: flex;
-  flex-direction: ${(props) => props.direction || "row"};
-  justify-content: ${(props) => props.justify || "stretch"};
-  align-items: ${(props) => props.align || "stretch"};
+  flex-direction: ${(props) => props.direction};
+  justify-content: ${(props) => props.justify};
+  align-items: ${(props) => props.align};
   gap: ${(props) => props.gap};
-  max-width: ${(props) => props.fWidth};
-  height: ${(props) => props.fHeight};
+  width: ${(props) => props.fwidth};
+  height: ${(props) => props.fheight};
 `;
 
 const Flex = (props) => <StyleFlex {...props} />;

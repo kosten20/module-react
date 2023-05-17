@@ -14,6 +14,8 @@ const Button = styled.button`
 `;
 const StyleText = styled.p`
   color: #ffffff;
+  display: flex;
+  gap: 10px;
 `;
 const StylePrice = styled.div`
   color: #d58c51;
@@ -30,11 +32,11 @@ const Footer = (props) => {
       <Flex
         align={"center"}
         justify={"space-between"}
-        fWidth={"100%"}
-        fHeight={"90px"}
+        fwidth={"70vw"}
+        fheight={"90px"}
       >
         <StyleText>
-          Заказ на сумму:<StylePrice>{props.price}</StylePrice>
+          Заказ на сумму:<StylePrice>{props.price + " руб"}</StylePrice>
         </StyleText>
         <Button>Оформить заказ</Button>
       </Flex>

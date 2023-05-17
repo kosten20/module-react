@@ -5,7 +5,8 @@ import Flex from "./Flex.js";
 import Button from "./Button.js";
 
 const StyleCard = styled.div`
-  ${(props) => props.type === "little" || "border: 1px solid #d58c51"};
+  ${(props) => props.type === "little" || "border: 1px solid #d58c51;"};
+  ${(props) => props.type === "little" && "margin: 0px 50px;"}
 `;
 
 const StyleHeader = styled.h2`
@@ -33,24 +34,25 @@ const StyleWrap = styled(Flex)`
 const Card = (props) => {
   const [color, setColor] = useState("#FFFFFF");
   const [src, setSrc] = useState(
-    props.type === "little" ? "./img/krest.svg" : "./img/plus.svg"
+    props.type === "little" ? "/img/krest.svg" : "/img/plus.svg"
   );
   return (
     <StyleCard
       type={props.type}
-      width={props.width}
-      height={props.height}
       onMouseEnter={() => setColor("#D58C51")}
       onMouseLeave={() => setColor("#FFFFFF")}
-      onClick={() =>
-        setSrc(src === "./img/plus.svg" ? "./img/krest.svg" : "./img/plus.svg")
-      }
+      onClick={props.onClick}
     >
-      <Flex {...props}>
+      <Flex
+        {...props}
+        onClick={() => {
+          setSrc(src === "/img/plus.svg" ? "/img/krest.svg" : "/img/plus.svg");
+        }}
+      >
         <img
-          src={props.img}
-          width={props.imgWidth}
-          height={props.imgHeight}
+          src={process.env.PUBLIC_URL + props.img}
+          width={props.imgwidth}
+          height={props.imgheight}
           alt=""
         />
         <StyleHeader color={color}>{props.header}</StyleHeader>
@@ -62,7 +64,7 @@ const Card = (props) => {
           type={props.type}
         >
           <>
-            {props.price} {props.weight && "/ " + props.weight}
+            {props.price + " руб"} {props.weight && "/ " + props.weight + " гр"}
           </>
           {props.type === "little" ? (
             <Button src={src} color={"#D58C51"} type />

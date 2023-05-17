@@ -18,7 +18,7 @@ const StyleButton = styled.div`
 const Button = (props) => {
   return (
     <StyleButton {...props}>
-      <img src={props.src} alt="" />
+      <img src={process.env.PUBLIC_URL + props.src} alt="" />
     </StyleButton>
   );
 };

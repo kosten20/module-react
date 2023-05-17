@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createGlobalStyle } from "styled-components";
-//import Main from "./main.js";
-import Flex from "./Flex.js";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.js";
 
-import Basket from "./Basket.js";
 const Global = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -24,8 +22,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Global />
-    <Flex direction={"column"} align={"center"}>
-      <Basket />
-    </Flex>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
